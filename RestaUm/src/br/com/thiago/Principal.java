@@ -10,8 +10,8 @@ import javax.swing.JLabel;
 public class Principal {
 	
 	private Tabuleiro tabuleiro = new Tabuleiro();
-	private Tabuleiro [] solucoes = new Tabuleiro[32];
-	private int [] direcoes = Tabuleiro.getDirecoes();
+	private Tabuleiro[] solucoes = new Tabuleiro[32];
+	private int[] direcoes = Tabuleiro.getDirecoes();
 	private Tela tela;
 	
 	public Principal() {
@@ -28,15 +28,14 @@ public class Principal {
 
 		Principal principal = new Principal();
 		
+		JLabel tempo = principal.getTela().getTempo();
 		long t1 = System.currentTimeMillis();
+		
 		if (principal.procuraSolucao(1, principal.tela)) {
-			System.out.println("Solution found in " + (System.currentTimeMillis() - t1) + " ms");
-			
-			JLabel tempo = principal.getTela().getTempo();
 			tempo.setText(tempo.getText() + (System.currentTimeMillis() - t1) + " ms");
 
 		} else {
-			System.out.println("No solution found!?");
+			tempo.setText(" Sem solução!");
 		}
 		
 		for (Tabuleiro tabuleiro : principal.solucoes) {
@@ -56,7 +55,7 @@ public class Principal {
 						
 						this.copyBoard(tabuleiro, solucoes[jogada]);
 						
-//						tela.getLabel().setText(tabuleiro.toString());
+						tela.getView().setText(tabuleiro.toString());
 						
 						if ( !(jogada >= 31 && tabuleiro.estaOcupado(3, 3)) ) {
 							

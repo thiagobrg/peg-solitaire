@@ -40,10 +40,10 @@ public class Tela extends JFrame {
 		
 		view.setText("OI");
 		
-		autor = new JLabel("2020 Thiago Guimar√£es");
+		autor = new JLabel("2020 Thiago Guimar„es");
 		getContentPane().add(autor, BorderLayout.SOUTH);
 		
-		tempo = new JLabel("Tempo para achar a solu√ß√£o: ");
+		tempo = new JLabel("Tempo para achar a soluÁ„o: ");
 		getContentPane().add(tempo, BorderLayout.NORTH);
 		view.setVisible(true);
 	}

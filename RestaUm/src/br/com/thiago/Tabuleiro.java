@@ -24,7 +24,7 @@ public class Tabuleiro {
 
 		for (int i = 0; i < posicoes.length; i++) {
 			for (int j = 0; j < posicoes.length; j++) {
-				posicoes[i][j] = "T";
+				posicoes[i][j] = OCUPADA;
 			}
 		}
 		posicoes[3][3] = VAZIA;
@@ -52,27 +52,27 @@ public class Tabuleiro {
 	
 	private int proximoX(int x, int direcao) {
 
-		int newX = x;
+		int novoX = x;
 		
 		if(direcao == DIREITA) {
-			newX += 2;
+			novoX += 2;
 		}else if(direcao == ESQUERDA) {
-			newX -= 2;
+			novoX -= 2;
 		}
 		
-		return newX;
+		return novoX;
 	}
 
 	private int proximoY(int y, int direcao) {
-		int newY = y;
+		int novoY = y;
 
 		if(direcao == SOBE) {
-			newY -= 2;
+			novoY -= 2;
 		}else if(direcao == DESCE) {
-			newY += 2;
+			novoY += 2;
 		}
 		
-		return newY;
+		return novoY;
 	}
 
 	private boolean validaMovimento(int xOrigem, int yOrigem, int xDestino, int yDestino) {
@@ -159,13 +159,13 @@ public class Tabuleiro {
 			for (int j = 0; j < posicoes.length; j++) {
 				
 				if(posicoes[j][i].equals(OCUPADA)) {
-					sb.append("<td style='background-color: blue; width:30px; height:10px;'>").append("</td>");
+					sb.append("<td style='background-color: blue; width:30px; height:10px; text-align:center;'>").append(OCUPADA).append("</td>");
 					
 				}else if(posicoes[j][i].equals(VAZIA)) {
-					sb.append("<td style='background-color: green; width:30px; height:10px;'>").append("</td>");
+					sb.append("<td style='background-color: green; width:30px; height:10px; text-align:center;'>").append(VAZIA).append("</td>");
 					
 				} else if(posicoes[j][i].equals(INVALIDA)) {
-					sb.append("<td style='background-color: white; width:30px; height:10px;'>").append("</td>");
+					sb.append("<td style='background-color: white; width:30px; height:10px; text-align:center;'>").append(INVALIDA).append("</td>");
 				}
 			}
 			sb.append("</tr>");
